@@ -30,7 +30,7 @@ public class Test8_DynamicControls {
 	     present = false;
 	  }  
 	  
-	  if(present == false) {
+	  if(present == true) {
 		  Thread.sleep(1000);
 		  driver.findElement(By.xpath("//button[contains(text(),'Remove')]")).click();
 		  //wanted to use WebDriverWait class with condition: invisibilityOfTheElementLocated() and presenceOfElementLocated()
@@ -54,8 +54,24 @@ public class Test8_DynamicControls {
   
   @Test(priority = 2)
   public void Test8_DynamicControlsButton() throws InterruptedException {
-	  
-	  
+
+	  Boolean textboxStatus = driver.findElement(By.xpath("//body/div[2]/div[1]/div[1]/form[2]/input[1]")).isEnabled();
+	  if(textboxStatus = true) {
+		  driver.findElement(By.xpath("//button[contains(text(),'Enable')]")).click();
+		  Thread.sleep(4000);
+		  String expectedTextBoxEnabledMessage = "It's enabled!";
+		  String actualTextBoxEnabledMessage = driver.findElement(By.xpath("//p[@id='message']")).getText();
+		  Assert.assertEquals(actualTextBoxEnabledMessage, expectedTextBoxEnabledMessage);
+		  
+		  driver.findElement(By.xpath("//button[contains(text(),'Disable')]")).click();
+		  Thread.sleep(4000);
+		  String expectedTextBoxDisabledMessage = "It's disabled!";
+		  String actualTextBoxDisabledMessage = driver.findElement(By.xpath("//p[@id='message']")).getText();
+		  Assert.assertEquals(actualTextBoxDisabledMessage, expectedTextBoxDisabledMessage);
+	  }
+	  else {
+		  System.out.println("Textbox is already enabled");
+	  }
   }
   
   

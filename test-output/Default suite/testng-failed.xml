@@ -3,13 +3,13 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="TestPass1.Test8_DynamicControls">
+      <class name="TestPass1.Test15_JavaScriptAlerts">
         <methods>
-          <include name="Test8_DynamicControls"/>
-          <include name="Setup"/>
           <include name="TearDown"/>
+          <include name="Setup"/>
+          <include name="Test15_JavaScriptAlerts"/>
         </methods>
-      </class> <!-- TestPass1.Test8_DynamicControls -->
+      </class> <!-- TestPass1.Test15_JavaScriptAlerts -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
